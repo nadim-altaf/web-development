@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Web Page Lab</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #eef2ff, #f9f9ff);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1, h3 {
+            color: #2c3e50;
+        }
+
+        h1, p {
+            text-align: center;
+        }
+
+        p, ul {
+            color: #555;
+            font-size: 16px;
+        }
+
+        img, a {
+            display: block;
+            margin: 20px auto;
+            width: 200px;
+            height: 100px;
+        }
+
+        a {
+            color: #0066cc;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f7f9ff;
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Nadim Altaf</h1>
+
+    <p>
+        Hello! I am a Computer Science student learning web development.
+        This page demonstrates HTML, CSS, and JavaScript.
+    </p>
+
+    <img src="https://miro.medium.com/v2/format:webp/0*EfkvjCOb8HA-dKNR" alt="Sample Image">
+
+    <a href="https://www.google.com" target="_blank">Visit My Favorite Website</a>
+
+    <h3>Sample Table</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+        <tr>
+            <td>Nadim</td>
+            <td>Computer Science</td>
+        </tr>
+    </table>
+
+    <h3>My Hobbies</h3>
+    <ul>
+        <li>Programming</li>
+        <li>Reading</li>
+        <li>Learning Quran</li>
+    </ul>
+
+    <h3>User Information Form</h3>
+    <form onsubmit="return validateForm()">
+
+        <label>Name</label>
+        <input type="text" id="username">
+
+        <label>Favorite Color</label><br>
+        <input type="radio" name="color" value="Red"> Red
+        <input type="radio" name="color" value="Blue"> Blue
+        <input type="radio" name="color" value="Green"> Green
+        <br><br>
+
+        <label>Favorite Hobby</label><br>
+        <input type="checkbox" id="hobby"> Programming
+        <br><br>
+
+        <label>Comments</label>
+        <textarea rows="4"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+<script>
+    function validateForm() {
+        var name = document.getElementById("username").value;
+        var colors = document.getElementsByName("color");
+        var hobby = document.getElementById("hobby").checked;
+
+        if (name === "") {
+            alert("Please enter your name.");
+            return false;
+        }
+
+        var colorSelected = false;
+        for (var i = 0; i < colors.length; i++) {
+            if (colors[i].checked) {
+                colorSelected = true;
+                break;
+            }
+        }
+
+        if (!colorSelected) {
+            alert("Please select your favorite color.");
+            return false;
+        }
+
+        if (!hobby) {
+            alert("Please select your favorite hobby.");
+            return false;
+        }
+
+        alert("Form submitted successfully!");
+        return true;
+    }
+</script>
+
+</body>
+</html>
