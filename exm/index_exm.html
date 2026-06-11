@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Web Page Lab</title>
+
+    <!-- CSS Styling -->
+    <style>
+        body {
+            background-color: #f2f7ff; /* light background */
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+        }
+
+        p {
+            color: #34495e;
+            font-size: 18px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table, th, td {
+            border: 2px solid #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Heading -->
+    <h1>Nadim Altaf</h1>
+
+    <!-- Paragraph -->
+    <p>
+        Hello! I am a Computer Science student learning web development.
+        This page demonstrates HTML, CSS, and JavaScript.
+    </p>
+
+    <!-- Image -->
+    <img src="https://via.placeholder.com/200" alt="Sample Image">
+
+    <br><br>
+
+    <!-- Hyperlink -->
+    <a href="https://www.google.com" target="_blank">Visit My Favorite Website</a>
+
+    <!-- Table -->
+    <h3>Sample Table</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+        <tr>
+            <td>Nadim</td>
+            <td>Computer Science</td>
+        </tr>
+    </table>
+
+    <!-- List -->
+    <h3>My Hobbies</h3>
+    <ul>
+        <li>Programming</li>
+        <li>Reading</li>
+        <li>Learning Quran</li>
+    </ul>
+
+    <!-- Form -->
+    <h3>User Information Form</h3>
+    <form onsubmit="return validateForm()">
+
+        <!-- Text Input -->
+        <label>Name:</label><br>
+        <input type="text" id="username"><br><br>
+
+        <!-- Radio Buttons -->
+        <label>Favorite Color:</label><br>
+        <input type="radio" name="color" value="Red"> Red<br>
+        <input type="radio" name="color" value="Blue"> Blue<br>
+        <input type="radio" name="color" value="Green"> Green<br><br>
+
+        <!-- Checkbox -->
+        <label>Favorite Hobby:</label><br>
+        <input type="checkbox" id="hobby"> Programming<br><br>
+
+        <!-- Textarea -->
+        <label>Comments:</label><br>
+        <textarea rows="4" cols="30"></textarea><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- JavaScript Validation -->
+    <script>
+        function validateForm() {
+            var name = document.getElementById("username").value;
+            var colors = document.getElementsByName("color");
+            var hobby = document.getElementById("hobby").checked;
+
+            // Check name
+            if (name === "") {
+                alert("Please enter your name.");
+                return false;
+            }
+
+            // Check radio button
+            var colorSelected = false;
+            for (var i = 0; i < colors.length; i++) {
+                if (colors[i].checked) {
+                    colorSelected = true;
+                    break;
+                }
+            }
+
+            if (!colorSelected) {
+                alert("Please select your favorite color.");
+                return false;
+            }
+
+            // Check checkbox
+            if (!hobby) {
+                alert("Please select your favorite hobby.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>
